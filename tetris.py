@@ -60,22 +60,21 @@ class Tetris():
         self.oScreen = Matrix(self.iScreen)
         self.justStarted = True
         return
-        def printScreen(self):
+    def printScreen(self):
         array = self.oScreen.get_array()
 
         for y in range(self.oScreen.get_dy()-Tetris.iScreenDw):
             for x in range(Tetris.iScreenDw, self.oScreen.get_dx()-Tetris.iScreenDw):
                 if array[y][x] == 0:
                     print("□", end='')
-                    #LMD.set_pixel(y, 19-x, 0)
+                        #LMD.set_pixel(y, 19-x, 0)
                 elif array[y][x] == 1:
-                    print("■", end='')
-                    #LMD.set_pixel(y, 19-x, 4)
+                  print("■", end='')
+                      #LMD.set_pixel(y, 19-x, 4)
                 else:
-                    print("XX", end='')
+                     print("XX", end='')
                     #continue
-            print()
-
+            print( )
     def deleteFullLines(self): # To be implemented!!
         y= self.currBlk.get_dy()
         if self.top + self.currBlk.get_dy()>=self.iScreenDy:
@@ -137,7 +136,7 @@ class Tetris():
         self.tempBlk = self.tempBlk + self.currBlk
         self.oScreen = Matrix(self.iScreen)
         self.oScreen.paste(self.tempBlk, self.top, self.left)
-                if self.state == TetrisState.NewBlock:
+        if self.state == TetrisState.NewBlock:
             self.oScreen = self.deleteFullLines()
             self.iScreen = Matrix(self.oScreen)
             self.top = 0
@@ -147,5 +146,4 @@ class Tetris():
             self.state = TetrisState.Finished
             self.oScreen = Matrix(self.iScreen)
         return self.state
-
 ### end of class Tetris():
